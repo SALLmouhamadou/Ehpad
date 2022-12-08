@@ -1,3 +1,7 @@
+DROP SCHEMA IF EXISTS ehpad;
+CREATE SCHEMA IF NOT EXISTS ehpad DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE ehpad;
+
 CREATE TABLE medicament(
    Id_medicament INT AUTO_INCREMENT,
    nom VARCHAR(70)  NOT NULL,
