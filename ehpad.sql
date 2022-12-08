@@ -5,9 +5,8 @@ USE ehpad;
 CREATE TABLE medicament(
    Id_medicament INT AUTO_INCREMENT,
    nom VARCHAR(70)  NOT NULL,
-   fonction VARCHAR(50) ,
+   fonction VARCHAR(50)  NOT NULL,
    stock INT NOT NULL,
-   quantite_par_boite INT NOT NULL,
    PRIMARY KEY(Id_medicament)
 )ENGINE INNODB;
 
@@ -37,7 +36,7 @@ CREATE TABLE personne(
    date_arrivee DATE NOT NULL,
    date_depart DATE,
    email VARCHAR(70)  NOT NULL,
-   telephone BIGINT NOT NULL,
+   telephone VARCHAR(15)  NOT NULL,
    PRIMARY KEY(Id_personne),
    UNIQUE(email),
    UNIQUE(telephone)
@@ -76,10 +75,10 @@ CREATE TABLE employe(
 )ENGINE INNODB;
 
 CREATE TABLE infirmiere(
-   Id_employe INT,
-   no_RPPS BIGINT NOT NULL,
-   PRIMARY KEY(Id_employe),
-   UNIQUE(no_RPPS),
+   no_RPPS VARCHAR(11) ,
+   Id_employe INT NOT NULL,
+   PRIMARY KEY(no_RPPS),
+   UNIQUE(Id_employe),
    FOREIGN KEY(Id_employe) REFERENCES employe(Id_employe)
 )ENGINE INNODB;
 
@@ -134,11 +133,11 @@ CREATE TABLE administre(
    Id_pensionnaire INT,
    Id_medicament INT,
    heure DATETIME,
-   Id_employe INT NOT NULL,
+   no_RPPS VARCHAR(11)  NOT NULL,
    PRIMARY KEY(Id_pensionnaire, Id_medicament, heure),
    FOREIGN KEY(Id_pensionnaire) REFERENCES pensionnaire(Id_pensionnaire),
    FOREIGN KEY(Id_medicament) REFERENCES medicament(Id_medicament),
-   FOREIGN KEY(Id_employe) REFERENCES infirmiere(Id_employe)
+   FOREIGN KEY(no_RPPS) REFERENCES infirmiere(no_RPPS)
 )ENGINE INNODB;
 
 CREATE TABLE repas_plat(
@@ -188,11 +187,114 @@ CREATE TABLE prescription(
 )ENGINE INNODB;
 
 CREATE TABLE doit_administrer(
-   Id_employe INT,
+   no_RPPS VARCHAR(11) ,
    Id_medecin INT,
    Id_pensionnaire INT,
    jour DATE,
-   PRIMARY KEY(Id_employe, Id_medecin, Id_pensionnaire, jour),
-   FOREIGN KEY(Id_employe) REFERENCES infirmiere(Id_employe),
+   PRIMARY KEY(no_RPPS, Id_medecin, Id_pensionnaire, jour),
+   FOREIGN KEY(no_RPPS) REFERENCES infirmiere(no_RPPS),
    FOREIGN KEY(Id_medecin, Id_pensionnaire, jour) REFERENCES ordonnance(Id_medecin, Id_pensionnaire, jour)
 )ENGINE INNODB;
+
+INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
+VALUES ('HADDOCK', 'Archibald', '1920-06-01', CURDATE(), 'archibald.haddock@lemans.fr', '+33659847264');
+
+INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
+VALUES ('ISTIS', 'Larme', '1918-11-11', CURDATE(), 'larme.istis@pastis.fr', '+33688888888');
+
+INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
+VALUES ('TERIEUR', 'Alex', '1932-12-24', CURDATE(), 'papa.noel@pole-nord.com', '+3966598482530');
+
+INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
+VALUES ('TERIEUR', 'Alain', '1938-02-14', CURDATE(), 'cupidon@love.com', '+33662984715');
+
+INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
+VALUES ('CURRY', 'Marie', '1960-09-21', CURDATE(), 'marieeaucurry@infirmiere.fr', '+33666666666');
+
+INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
+VALUES ('BRETON', 'Anna', '1991-11-11', CURDATE(), 'bretagnelibre@insoumis.fr', '+33699999999');
+
+INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
+VALUES ('BEBOU', 'Amelie', '1975-05-05', CURDATE(), 'bebou@docteur.fr', '+33611111111');
+
+INSERT INTO etage(etage_securise)
+VALUES (false);
+
+INSERT INTO etage(etage_securise)
+VALUES (true);
+
+INSERT INTO etage(etage_securise)
+VALUES (false);
+
+INSERT INTO etage(etage_securise)
+VALUES (false);
+
+-- DEBUT DES VALEURS DE TEST
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (201, false, 2);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (202, false, 2);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (203, false, 2);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (204, false, 2);
+
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (301, false, 3);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (302, true, 3);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (303, true, 3);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (304, false, 3);
+
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (401, false, 4);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (402, true, 4);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (403, true, 4);
+INSERT INTO chambre(no_chambre, chambre_double, id_etage)
+VALUES (404, false, 4);
+
+INSERT INTO pensionnaire(no_secu, id_chambre, id_personne)
+VALUES (120069135923302, 1, 1);
+
+INSERT INTO pensionnaire(no_secu, id_chambre, id_personne)
+VALUES (118119135923555, 2, 2);
+
+INSERT INTO pensionnaire(no_secu, id_chambre, id_personne)
+VALUES (132069135923666, 4, 3);
+
+INSERT INTO pensionnaire(no_secu, id_chambre, id_personne)
+VALUES (138069135923777, 3, 4);
+
+INSERT INTO fonction(nom)
+VALUES ('infirmiere');
+
+INSERT INTO fonction(nom)
+VALUES ('cuisinier');
+
+INSERT INTO fonction(nom)
+VALUES ("personnel_administratif");
+
+INSERT INTO fonction(nom)
+VALUES ('comptable');
+
+INSERT INTO employe(no_secu, id_fonction, id_personne)
+VALUES (160099135923888, 1, 5);
+
+INSERT INTO infirmiere(no_RPPS, id_employe)
+VALUES (12345678901, 1);
+
+INSERT INTO medicament(nom, fonction, stock)
+VALUES ("Doliprane", 'antalgique', 50);
+
+INSERT INTO medicament(nom, fonction, stock)
+VALUES ("Aspegic", 'antalgique', 80);
+
+INSERT INTO medicament(nom, fonction, stock)
+VALUES ("céphalexine", 'antibiotique', 5);
+
+INSERT INTO medecin(id_personne)
+VALUES (7);
