@@ -1,5 +1,5 @@
 # Ehpad
 
-Camelcase<br />
-Looping --> .loo  
-Remplacer les ";" dans le sql généré par Looping par "“ENGINE INNODB;”  
+Camelcase pour tout code.<br />
+Projet réalisé en JAVA avec l'aide de MAVEN.  
+Pour le compte du GRETA ESSONNE
