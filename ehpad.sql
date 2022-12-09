@@ -383,4 +383,65 @@ VALUES ("fromage blanc");
 INSERT INTO plat(nom)
 VALUES ("crumble aux pommes");
 
+INSERT INTO repas(rang, jour)
+VALUES (1, '2022-12-26');
 
+INSERT INTO repas(rang, jour)
+VALUES (2, '2022-12-26');
+
+INSERT INTO repas(rang, jour)
+VALUES (3, '2022-12-26');
+
+INSERT INTO repas(rang, jour)
+VALUES (1, '2022-12-27');
+
+INSERT INTO repas(rang, jour)
+VALUES (2, '2022-12-27');
+
+INSERT INTO repas(rang, jour)
+VALUES (3, '2022-12-27');
+
+INSERT INTO repas(rang, jour)
+VALUES (1, '2022-12-28');
+
+INSERT INTO repas(rang, jour)
+VALUES (2, '2022-12-28');
+
+INSERT INTO repas(rang, jour)
+VALUES (3, '2022-12-28');
+
+INSERT INTO repas(rang, jour)
+VALUES (1, '2022-12-29');
+
+INSERT INTO repas(rang, jour)
+VALUES (2, '2022-12-29');
+
+INSERT INTO repas(rang, jour)
+VALUES (3, '2022-12-29');
+
+INSERT INTO repas(rang, jour)
+VALUES (1, '2022-12-30');
+
+INSERT INTO repas(rang, jour)
+VALUES (2, '2022-12-30');
+
+INSERT INTO repas(rang, jour)
+VALUES (3, '2022-12-30');
+
+INSERT INTO repas(rang, jour)
+VALUES (1, '2022-12-31');
+
+INSERT INTO repas(rang, jour)
+VALUES (2, '2022-12-31');
+
+INSERT INTO repas(rang, jour)
+VALUES (3, '2022-12-31');
+
+INSERT INTO repas(rang, jour)
+VALUES (1, '2023-01-01');
+
+INSERT INTO repas(rang, jour)
+VALUES (2, '2023-01-01');
+
+INSERT INTO repas(rang, jour)
+VALUES (3, '2023-01-01');
