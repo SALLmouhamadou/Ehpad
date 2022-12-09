@@ -85,7 +85,6 @@ CREATE TABLE infirmiere(
 CREATE TABLE repas(
    Id_repas INT AUTO_INCREMENT,
    rang INT NOT NULL,
-   date_repas DATE,
    jour DATE NOT NULL,
    PRIMARY KEY(Id_repas)
 )ENGINE INNODB;
@@ -195,6 +194,7 @@ CREATE TABLE doit_administrer(
    FOREIGN KEY(no_RPPS) REFERENCES infirmiere(no_RPPS),
    FOREIGN KEY(Id_medecin, Id_pensionnaire, jour) REFERENCES ordonnance(Id_medecin, Id_pensionnaire, jour)
 )ENGINE INNODB;
+
 
 -- DEBUT DES VALEURS DE TEST
 INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
