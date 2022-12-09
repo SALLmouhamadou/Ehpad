@@ -298,3 +298,12 @@ VALUES ("céphalexine", 'antibiotique', 5);
 
 INSERT INTO medecin(id_personne)
 VALUES (7);
+
+INSERT INTO ordonnance(id_medecin, id_pensionnaire, jour)
+VALUES (1,3, CURDATE());
+
+INSERT INTO prescription(id_medicament, id_medecin, id_pensionnaire, jour, posologie, date_debut_traitement, date_fin_traitement)
+VALUES (1, 1,3, CURDATE(), "- Paracétamol 1000mg : 3 comprimés par jour", curdate(), '2023-07-14');
+
+INSERT INTO doit_administrer(id_medecin, id_pensionnaire, jour, no_RPPS)
+VALUES (1, 3, CURDATE(), 12345678901);
