@@ -196,6 +196,7 @@ CREATE TABLE doit_administrer(
    FOREIGN KEY(Id_medecin, Id_pensionnaire, jour) REFERENCES ordonnance(Id_medecin, Id_pensionnaire, jour)
 )ENGINE INNODB;
 
+-- DEBUT DES VALEURS DE TEST
 INSERT INTO personne(nom, prenom, date_naissance, date_arrivee, email, telephone)
 VALUES ('HADDOCK', 'Archibald', '1920-06-01', CURDATE(), 'archibald.haddock@lemans.fr', '+33659847264');
 
@@ -229,7 +230,6 @@ VALUES (false);
 INSERT INTO etage(etage_securise)
 VALUES (false);
 
--- DEBUT DES VALEURS DE TEST
 INSERT INTO chambre(no_chambre, chambre_double, id_etage)
 VALUES (201, false, 2);
 INSERT INTO chambre(no_chambre, chambre_double, id_etage)
