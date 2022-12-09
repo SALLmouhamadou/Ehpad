@@ -307,3 +307,80 @@ VALUES (1, 1,3, CURDATE(), "- Paracétamol 1000mg : 3 comprimés par jour", curd
 
 INSERT INTO doit_administrer(id_medecin, id_pensionnaire, jour, no_RPPS)
 VALUES (1, 3, CURDATE(), 12345678901);
+
+INSERT INTO allergene(nom)
+VALUES ("gluten");
+
+INSERT INTO allergene(nom)
+VALUES ("soja");
+
+INSERT INTO allergene(nom)
+VALUES ("arachide");
+
+INSERT INTO allergene(nom)
+VALUES ("lait");
+
+INSERT INTO allergene(nom)
+VALUES ("moutarde");
+
+INSERT INTO allergene(nom)
+VALUES ("céleri");
+
+INSERT INTO plat(nom)
+VALUES ("steak-frites");
+
+INSERT INTO plat(nom)
+VALUES ("moules-frites");
+
+INSERT INTO plat(nom)
+VALUES ("tomates farcies");
+
+INSERT INTO plat(nom)
+VALUES ("lasagnes");
+
+INSERT INTO plat(nom)
+VALUES ("couscous");
+
+INSERT INTO plat(nom)
+VALUES ("purée cabillaud");
+
+INSERT INTO plat(nom)
+VALUES ("pâtes carbonara");
+
+INSERT INTO plat(nom)
+VALUES ("gratin de brocolis");
+
+INSERT INTO plat(nom)
+VALUES ("salade de pâtes");
+
+INSERT INTO plat(nom)
+VALUES ("chèvre chaud");
+
+INSERT INTO plat(nom)
+VALUES ("gaspacho");
+
+INSERT INTO plat(nom)
+VALUES ("tomate mozzarella");
+
+INSERT INTO plat(nom)
+VALUES ("velouté de légumes");
+
+INSERT INTO plat(nom)
+VALUES ("mousse au chocolat");
+
+INSERT INTO plat(nom)
+VALUES ("salade de fruits");
+
+INSERT INTO plat(nom)
+VALUES ("tarte aux poires");
+
+INSERT INTO plat(nom)
+VALUES ("tiramisu");
+
+INSERT INTO plat(nom)
+VALUES ("fromage blanc");
+
+INSERT INTO plat(nom)
+VALUES ("crumble aux pommes");
+
+
